@@ -11,8 +11,11 @@
 
 <img src="assets/logo-Python.png" alt="Logo Carrera" style="height:50px;"/>
 <img src="assets/logo-Telegram.png" alt="Logo Carrera" style="height:50px;"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="3.5em" height="3.5em" viewBox="0 0 24 24" {...props} key={key}><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.1 13.3L8 16.8l-4.2-2.6A4 4 0 0 1 6 6.7m6 7.8L6 11V6a4 4 0 0 1 7.6-2m-3.7 9.3V6.2l4.4-2.6a4 4 0 0 1 5.3 5.8m-9.7 1.3L16 7.2l4.2 2.6a4 4 0 0 1-2.2 7.5m-6-7.8l6 3.5v5a4 4 0 0 1-7.6 2m3.7-9.3v7.1l-4.4 2.6a4 4 0 0 1-5.3-5.8"/></svg>
 
-En este taller te guiaremos paso a paso para crear un bot de Telegram con `Python` utilizando la biblioteca `TeleBot`. Incluye instrucciones para obtener el token de acceso, ejecutar el bot y agregar comandos personalizados.
+En este taller te guiaremos paso a paso para crear un bot de Telegram con `Python` utilizando la biblioteca `TeleBot` y `ChatGPT`. 
+
+Incluye instrucciones para obtener el token de acceso, ejecutar el bot y agregar comandos personalizados.
 
 ---
 
@@ -199,8 +202,33 @@ def handle_voice(message):
 2. El bot debería responder con el texto transcrito del mensaje de voz.
 
 ---
+## **Paso 8: Solicitar Ayuda y Crear un Comando Final**
 
-## **Paso 7: Probar y Mejorar**
+Como parte final del taller, los estudiantes pueden pedirle a ChatGPT que les ayude a agregar un comando nuevo a su bot. Sigue estas instrucciones:
+
+1. **Organiza tu Código:**
+   - Asegúrate de que todo tu código esté funcional y bien organizado.
+   - Identifica qué funcionalidad te gustaría agregar o mejorar.
+
+2. **Describe tu Necesidad:**
+   - Envia tu código a ChatGPT junto con una descripción clara del comando que deseas implementar.
+   - Ejemplo:
+     - "Quiero un comando `/temperatura` que permita convertir entre grados Celsius y Fahrenheit."
+     - "Necesito un comando `/trivia` que haga preguntas al usuario y evalúe si las respuestas son correctas."
+
+3. **Solicita Asistencia:**
+   - Copia y pega el código actual del bot en el mensaje a ChatGPT.
+   - Incluye una descripción breve y específica del comando deseado.
+
+4. **Incorpora las Sugerencias:**
+   - Recibirás el código modificado o el fragmento necesario para agregar tu nuevo comando.
+   - Prueba el nuevo comando en tu bot y ajusta si es necesario.
+
+5. **Disfruta del Proceso:**
+   - Experimenta con diferentes ideas para comandos y extiende la funcionalidad de tu bot.
+
+---
+## **Paso 9: Probar y Mejorar**
 
 - Ejecuta el bot nuevamente y prueba los nuevos comandos.
 - Pide a los estudiantes que modifiquen o agreguen más funcionalidades.
@@ -210,5 +238,15 @@ def handle_voice(message):
 ## **Recursos Adicionales**
 - [Documentación oficial de TeleBot](https://github.com/eternnoir/pyTelegramBotAPI)
 - [Guía de Telegram Bots](https://core.telegram.org/bots)
+
+
+---
+## **Autores**
+
+- **Pablo Torres**
+  - Magíster en Software
+  - Ingeniero de Sistemas
+  - Correo: [ptorresp@ups.edu.ec](mailto:ptorresp@ups.edu.ec)
+  - GitHub: [PabloT18](https://github.com/PabloT18)
 
 
