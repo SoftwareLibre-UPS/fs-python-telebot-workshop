@@ -150,7 +150,7 @@ def calculate_age(message):
 
 ---
 
-## **Paso 9: Hacer que Aparezca el Menú de Comandos**
+## **Paso 7: Hacer que Aparezca el Menú de Comandos**
 
 Telegram permite mostrar un menú de comandos cuando los usuarios escriben `/`. Para configurar esto en tu bot, sigue estos pasos:
 
@@ -184,7 +184,7 @@ set_commands()
 ---
 ## **Paso 8: Convertir Audio a Texto**
 
-Puedes agregar una funcionalidad para que los usuarios envíen un audio y el bot lo convierta en texto usando una librería como `speech_recognition`. Sigue estos pasos:
+ Agregar una funcionalidad para que los usuarios envíen un audio y el bot lo convierta en texto usando una librería como `speech_recognition`. Sigue estos pasos:
 
 ### **Instalar Dependencias**
 1. Instala la librería necesaria:
@@ -196,6 +196,33 @@ Puedes agregar una funcionalidad para que los usuarios envíen un audio y el bot
      ```bash
      sudo apt install ffmpeg
      ```
+
+### **Instalación de `ffmpeg` en Windows**
+1. **Descargar `ffmpeg`:**
+   - Ve a la página oficial de `ffmpeg` y descarga el archivo comprimido adecuado para tu sistema operativo (Windows):
+     [https://ffmpeg.org/download.html](https://ffmpeg.org/download.html)
+
+2. **Extraer el archivo:**
+   - Descomprime el archivo descargado en una carpeta en tu disco local (por ejemplo, `C:\ffmpeg`).
+
+3. **Agregar `ffmpeg` al PATH:**
+   - Abre las **Propiedades del Sistema**:
+     - En la barra de búsqueda de Windows, escribe `Configuración avanzada del sistema` y selecciona la opción.
+   - Haz clic en **Variables de entorno**.
+   - En la sección **Variables del sistema**, selecciona `Path` y haz clic en **Editar**.
+   - Agrega una nueva entrada con la ruta de la carpeta `bin` dentro de `ffmpeg`. Por ejemplo:
+     ```
+     C:\ffmpeg\bin
+     ```
+   - Guarda los cambios y cierra las ventanas.
+
+4. **Verificar la instalación:**
+   - Abre una ventana de comandos (CMD) y escribe:
+     ```cmd
+     ffmpeg --version
+     ```
+   - Deberías ver información sobre la versión de `ffmpeg`.
+
 
 ### **Código para Convertir Audio a Texto**
 Agrega esta funcionalidad a tu bot:
@@ -305,4 +332,10 @@ Como parte final del taller, los estudiantes pueden pedirle a ChatGPT que les ay
   - Correo: [ptorresp@ups.edu.ec](mailto:ptorresp@ups.edu.ec)
   - GitHub: [PabloT18](https://github.com/PabloT18)
 
+
+
+
+En Windows, puedes instalar `ffmpeg` de las siguientes maneras para que funcione con tu bot de Telegram:
+
+---
 
