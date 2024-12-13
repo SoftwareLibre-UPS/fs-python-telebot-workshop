@@ -9,8 +9,8 @@
 ###
 # Crear un Bot de Telegram con Python
 
-<img src="assets/logo-Python.png" alt="Logo Carrera" style="height:50px;"/>
-<img src="assets/logo-Telegram.png" alt="Logo Carrera" style="height:50px;"/>
+<img src="assets/logos/logo-Python.png" alt="Logo Carrera" style="height:50px;"/>
+<img src="assets/logos/logo-Telegram.png" alt="Logo Carrera" style="height:50px;"/>
     <svg xmlns="http://www.w3.org/2000/svg" width="3.5em" height="3.5em" viewBox="0 0 24 24" {...props} key={key}><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.1 13.3L8 16.8l-4.2-2.6A4 4 0 0 1 6 6.7m6 7.8L6 11V6a4 4 0 0 1 7.6-2m-3.7 9.3V6.2l4.4-2.6a4 4 0 0 1 5.3 5.8m-9.7 1.3L16 7.2l4.2 2.6a4 4 0 0 1-2.2 7.5m-6-7.8l6 3.5v5a4 4 0 0 1-7.6 2m3.7-9.3v7.1l-4.4 2.6a4 4 0 0 1-5.3-5.8"/></svg>
 
 En este taller te guiaremos paso a paso para crear un bot de Telegram con `Python` utilizando la biblioteca `TeleBot` y `ChatGPT`. 
@@ -27,9 +27,16 @@ Incluye instrucciones para obtener el token de acceso, ejecutar el bot y agregar
    ```
    /newbot
    ```
+
+![BotFather](assets/captures/cap_botfather_01.png)
+
+
 4. Sigue las instrucciones:
    - Asigna un nombre a tu bot (por ejemplo, `MiPrimerBot`).
    - Asigna un nombre de usuario único que termine en `bot` (por ejemplo, `MiPrimerBot` o `MiBot123_bot`).
+
+![BotFather](assets/captures/cap_botfather_02.png)
+
 5. Una vez creado, BotFather te proporcionará un **token de acceso**. Este token es esencial para interactuar con la API de Telegram.
    - Ejemplo de token: `123456789:ABCDefGhIjKLmnOpQrStuVWxyZ12345678`
 
@@ -142,7 +149,40 @@ def calculate_age(message):
    ```
 
 ---
-## **Paso 7: Convertir Audio a Texto**
+
+## **Paso 9: Hacer que Aparezca el Menú de Comandos**
+
+Telegram permite mostrar un menú de comandos cuando los usuarios escriben `/`. Para configurar esto en tu bot, sigue estos pasos:
+
+### **Configurar el Menú de Comandos**
+1. Agrega el siguiente código al archivo de tu bot:
+
+```python
+from telebot.types import BotCommand
+
+def set_commands():
+    commands = [
+        BotCommand("start", "Inicia el bot"),
+        BotCommand("ayuda", "Muestra la ayuda"),
+        BotCommand("edad", "Calcula los días vividos"),
+        BotCommand("motivacion", "Envía una frase motivadora"),
+    ]
+    bot.set_my_commands(commands)
+
+# Configurar los comandos al iniciar el bot
+set_commands()
+```
+
+### **Cómo Funciona**
+- El método `set_my_commands` registra los comandos en Telegram.
+- Cada vez que un usuario escribe `/`, aparecerá el menú de comandos configurados.
+
+### **Prueba**
+1. Detén y reinicia tu bot para aplicar los cambios.
+2. Escribe `/` en el chat con el bot y verifica que aparezca el menú con los comandos configurados.
+
+---
+## **Paso 8: Convertir Audio a Texto**
 
 Puedes agregar una funcionalidad para que los usuarios envíen un audio y el bot lo convierta en texto usando una librería como `speech_recognition`. Sigue estos pasos:
 
@@ -202,7 +242,23 @@ def handle_voice(message):
 2. El bot debería responder con el texto transcrito del mensaje de voz.
 
 ---
-## **Paso 8: Solicitar Ayuda y Crear un Comando Final**
+## **Paso 9: Cambiar la Imagen del Bot**
+
+Puedes cambiar la imagen de tu bot utilizando BotFather. Sigue estos pasos:
+
+1. Abre Telegram y busca `BotFather`.
+2. Selecciona el bot al que deseas cambiarle la imagen usando el comando:
+   ```
+   /mybots
+   ```
+3. Haz clic en el bot deseado y selecciona la opción **Editar Bot**.
+4. Elige la opción **Editar Imagen del Bot**.
+5. Sube la nueva imagen desde tu dispositivo.
+   - Asegúrate de que la imagen cumpla con las especificaciones de Telegram (formato cuadrado, menor a 5 MB).
+6. Confirma la acción y verifica que la imagen se haya actualizado.
+
+---
+## **Paso 10: Solicitar Ayuda y Crear un Comando Final**
 
 Como parte final del taller, los estudiantes pueden pedirle a ChatGPT que les ayude a agregar un comando nuevo a su bot. Sigue estas instrucciones:
 
@@ -228,7 +284,7 @@ Como parte final del taller, los estudiantes pueden pedirle a ChatGPT que les ay
    - Experimenta con diferentes ideas para comandos y extiende la funcionalidad de tu bot.
 
 ---
-## **Paso 9: Probar y Mejorar**
+## **Paso 11: Probar y Mejorar**
 
 - Ejecuta el bot nuevamente y prueba los nuevos comandos.
 - Pide a los estudiantes que modifiquen o agreguen más funcionalidades.
