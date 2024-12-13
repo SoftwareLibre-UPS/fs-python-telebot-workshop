@@ -182,7 +182,50 @@ set_commands()
 2. Escribe `/` en el chat con el bot y verifica que aparezca el menú con los comandos configurados.
 
 ---
-## **Paso 8: Convertir Audio a Texto**
+
+## **Paso 8: Convertir Texto a Audio TTS**
+
+Puedes agregar una funcionalidad para que los usuarios envíen texto y el bot responda con un audio que lea ese texto usando una librería como `gTTS`. Sigue estos pasos:
+
+### **Instalar Dependencias**
+1. Instala la librería `gTTS`:
+   ```bash
+   pip install gTTS
+   ```
+
+### **Código para Convertir Texto a Audio**
+Agrega esta funcionalidad a tu bot:
+
+```python
+from gtts import gTTS
+
+# Comando /audio
+@bot.message_handler(commands=['audio'])
+def text_to_audio(message):
+    try:
+        # Extraer el texto después del comando
+        text = message.text[len('/audio '):].strip()
+        if not text:
+            bot.reply_to(message, "Por favor, envíame un texto para convertir a audio. Ejemplo: /audio Hola, ¿cómo estás?")
+            return
+
+        # Convertir texto a audio
+        tts = gTTS(text, lang='es')
+        audio_file = "response.mp3"
+        tts.save(audio_file)
+
+        # Enviar el audio al usuario
+        with open(audio_file, 'rb') as audio:
+            bot.send_voice(message.chat.id, audio)
+
+        # Limpiar archivo temporal
+        os.remove(audio_file)
+
+    except Exception as e:
+        bot.reply_to(message, f"No pude generar el audio: {str(e)}")
+```
+---
+## **Paso 9: Convertir Audio a Texto STT**
 
  Agregar una funcionalidad para que los usuarios envíen un audio y el bot lo convierta en texto usando una librería como `speech_recognition`. Sigue estos pasos:
 
@@ -269,7 +312,7 @@ def handle_voice(message):
 2. El bot debería responder con el texto transcrito del mensaje de voz.
 
 ---
-## **Paso 9: Cambiar la Imagen del Bot**
+## **Paso 10: Cambiar la Imagen del Bot**
 
 Puedes cambiar la imagen de tu bot utilizando BotFather. Sigue estos pasos:
 
@@ -285,7 +328,7 @@ Puedes cambiar la imagen de tu bot utilizando BotFather. Sigue estos pasos:
 6. Confirma la acción y verifica que la imagen se haya actualizado.
 
 ---
-## **Paso 10: Solicitar Ayuda y Crear un Comando Final**
+## **Paso 11: Solicitar Ayuda y Crear un Comando Final**
 
 Como parte final del taller, los estudiantes pueden pedirle a ChatGPT que les ayude a agregar un comando nuevo a su bot. Sigue estas instrucciones:
 
@@ -311,7 +354,7 @@ Como parte final del taller, los estudiantes pueden pedirle a ChatGPT que les ay
    - Experimenta con diferentes ideas para comandos y extiende la funcionalidad de tu bot.
 
 ---
-## **Paso 11: Probar y Mejorar**
+## **Paso 12: Probar y Mejorar**
 
 - Ejecuta el bot nuevamente y prueba los nuevos comandos.
 - Pide a los estudiantes que modifiquen o agreguen más funcionalidades.
