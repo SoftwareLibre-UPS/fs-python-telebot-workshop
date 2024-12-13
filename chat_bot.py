@@ -1,4 +1,4 @@
-TOKEN = ""
+TOKEN = "8145703136:AAHp1JSimU62L8GUSPAy5JEjWWqM24yLU2Y"
 
 import os
 import random
