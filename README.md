@@ -11,7 +11,7 @@
 
 <img src="assets/logos/logo-Python.png" alt="Logo Carrera" style="height:50px;"/>
 <img src="assets/logos/logo-Telegram.png" alt="Logo Carrera" style="height:50px;"/>
-    <svg xmlns="http://www.w3.org/2000/svg" width="3.5em" height="3.5em" viewBox="0 0 24 24" {...props} key={key}><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.1 13.3L8 16.8l-4.2-2.6A4 4 0 0 1 6 6.7m6 7.8L6 11V6a4 4 0 0 1 7.6-2m-3.7 9.3V6.2l4.4-2.6a4 4 0 0 1 5.3 5.8m-9.7 1.3L16 7.2l4.2 2.6a4 4 0 0 1-2.2 7.5m-6-7.8l6 3.5v5a4 4 0 0 1-7.6 2m3.7-9.3v7.1l-4.4 2.6a4 4 0 0 1-5.3-5.8"/></svg>
+<img src="assets/logos/logo-Openai.png" alt="Logo Carrera" style="height:50px;"/>
 
 En este taller te guiaremos paso a paso para crear un bot de Telegram con `Python` utilizando la biblioteca `TeleBot` y `ChatGPT`. 
 
