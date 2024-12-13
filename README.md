@@ -2,7 +2,7 @@
 ## Ingeniería en Ciencias de la Computación
 
 
-<img src="assets/ups-icc.png" alt="Logo Carrera" style="height:75px;"/>
+<img src="assets/logos/ups-icc.png" alt="Logo Carrera" style="height:75px;"/>
 
 #
 ###
