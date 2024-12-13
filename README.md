@@ -12,7 +12,7 @@
 <img src="assets/logo-Python.png" alt="Logo Carrera" style="height:50px;"/>
 <img src="assets/logo-Telegram.png" alt="Logo Carrera" style="height:50px;"/>
 
-En este taller te guiaremos paso a paso para crear un bot de Telegram utilizando la biblioteca `TeleBot`. Incluye instrucciones para obtener el token de acceso, ejecutar el bot y agregar comandos personalizados.
+En este taller te guiaremos paso a paso para crear un bot de Telegram con `Python` utilizando la biblioteca `TeleBot`. Incluye instrucciones para obtener el token de acceso, ejecutar el bot y agregar comandos personalizados.
 
 ---
 
@@ -137,6 +137,66 @@ def calculate_age(message):
        ]
        bot.reply_to(message, random.choice(frases))
    ```
+
+---
+## **Paso 7: Convertir Audio a Texto**
+
+Puedes agregar una funcionalidad para que los usuarios envíen un audio y el bot lo convierta en texto usando una librería como `speech_recognition`. Sigue estos pasos:
+
+### **Instalar Dependencias**
+1. Instala la librería necesaria:
+   ```bash
+   pip install SpeechRecognition pydub
+   ```
+2. Asegúrate de que también tienes `ffmpeg` instalado, ya que es necesario para procesar archivos de audio:
+   - En sistemas basados en Debian/Ubuntu:
+     ```bash
+     sudo apt install ffmpeg
+     ```
+
+### **Código para Convertir Audio a Texto**
+Agrega esta funcionalidad a tu bot:
+
+```python
+import os
+import speech_recognition as sr
+from pydub import AudioSegment
+# Manejar mensajes de audio
+@bot.message_handler(content_types=['voice'])
+def handle_voice(message):
+    try:
+        # Descargar el archivo de audio
+        file_info = bot.get_file(message.voice.file_id)
+        downloaded_file = bot.download_file(file_info.file_path)
+        audio_file = "voice.ogg"
+
+        with open(audio_file, 'wb') as f:
+            f.write(downloaded_file)
+
+        # Convertir el archivo OGG a WAV
+        sound = AudioSegment.from_file(audio_file, format="ogg")
+        wav_file = "voice.wav"
+        sound.export(wav_file, format="wav")
+
+        # Reconocer el texto del audio
+        recognizer = sr.Recognizer()
+        with sr.AudioFile(wav_file) as source:
+            audio_data = recognizer.record(source)
+            text = recognizer.recognize_google(audio_data, language="es-ES")
+
+        bot.reply_to(message, f"Texto reconocido: {text}")
+
+        # Limpiar archivos temporales
+        os.remove(audio_file)
+        os.remove(wav_file)
+
+    except Exception as e:
+        bot.reply_to(message, f"No pude procesar el audio: {str(e)}")
+```
+
+### **Prueba**
+1. Envía un mensaje de voz a tu bot.
+2. El bot debería responder con el texto transcrito del mensaje de voz.
 
 ---
 
